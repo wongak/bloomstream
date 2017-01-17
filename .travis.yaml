@@ -1,0 +1,14 @@
+language: go
+
+go:
+  - 1.7.x
+  - 1.8rc1
+  - tip
+
+install:
+  - go get -u github.com/FiloSottile/gvt
+  - gvt restore
+
+script:
+  - go vet ./cmd/... ./pkg/...
+  - go test -v ./cmd/... ./pkg/...
