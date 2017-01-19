@@ -411,6 +411,22 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/onsi/ginkgo",
+			"repository": "https://github.com/onsi/ginkgo",
+			"vcs": "git",
+			"revision": "a23f924ce96d61f963fb6219b8ff069d8d768cc2",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/onsi/gomega",
+			"repository": "https://github.com/onsi/gomega",
+			"vcs": "git",
+			"revision": "e85f63af4302dc0e4277c6008ecf803f1d80e4f0",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/opentracing/basictracer-go",
 			"repository": "https://github.com/opentracing/basictracer-go",
 			"vcs": "git",
@@ -736,6 +752,14 @@
 			"vcs": "git",
 			"revision": "50955793b0183f9de69bd78e2ec251cf20aab121",
 			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "gopkg.in/yaml.v2",
+			"repository": "https://gopkg.in/yaml.v2",
+			"vcs": "git",
+			"revision": "a5b47d31c556af34a302ce5d659e6fea44d90de0",
+			"branch": "v2",
 			"notests": true
 		},
 		{
