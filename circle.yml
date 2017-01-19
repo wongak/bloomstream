@@ -1,0 +1,13 @@
+machine:
+  go:
+    version: 1.7.4
+
+dependencies:
+  pre:
+  - go get -u github.com/FiloSottile/gvt
+  - gvt restore
+
+test:
+  override:
+  - go vet ./cmd/... ./pkg/...
+  - go test -v ./cmd/... ./pkg/...
