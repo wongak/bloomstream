@@ -1,6 +1,4 @@
 machine:
-  go:
-    version: 1.7.4
 
 dependencies:
   pre:
