@@ -1,9 +1,9 @@
 dependencies:
-  pre:
+  post:
   - go get -u github.com/FiloSottile/gvt
   - gvt restore
 
 test:
   override:
   - go vet ./cmd/... ./pkg/...
-  - go test -v ./cmd/... ./pkg/...
+  - go test -v -race ./cmd/... ./pkg/...
