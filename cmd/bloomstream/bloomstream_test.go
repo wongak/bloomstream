@@ -63,7 +63,11 @@ var _ = Describe("The bloomstream command", func() {
 
 	Context("when running the editor mode", func() {
 		BeforeEach(func() {
-			args = append(args, "editor")
+			args = []string{"a", "editor"}
+		})
+		It("should exit with code 0", func() {
+			GinkgoT().Log(stdErr.String())
+			Expect(exitCode).To(Equal(0))
 		})
 	})
 })

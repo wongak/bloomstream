@@ -59,7 +59,7 @@ func main() {
 	))
 
 	var run func([]string) error
-	switch strings.ToLower(os.Args[0]) {
+	switch strings.ToLower(os.Args[1]) {
 	case "editor":
 		run = runEditor
 	default:
@@ -71,4 +71,5 @@ func main() {
 		fmt.Fprintf(stderr, "%v\n", err)
 		exit(1)
 	}
+	exit(0)
 }
