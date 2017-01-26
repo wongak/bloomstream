@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io"
 	"os"
@@ -20,7 +21,6 @@ var (
 var (
 	stdout io.Writer
 	stderr io.Writer
-	exit   func(int)
 )
 
 // globals
@@ -31,7 +31,6 @@ var (
 func init() {
 	stdout = os.Stdout
 	stderr = os.Stderr
-	exit = os.Exit
 }
 
 func usage() {
@@ -48,7 +47,7 @@ func usage() {
 func main() {
 	if len(os.Args) < 2 {
 		usage()
-		exit(1)
+		os.Exit(1)
 	}
 	logger = log.NewContext(log.NewLogfmtLogger(log.NewSyncWriter(stdout))).WithPrefix(
 		"t", log.Timestamp,
@@ -64,12 +63,22 @@ func main() {
 		run = runEditor
 	default:
 		usage()
-		exit(1)
+		os.Exit(1)
 	}
 
 	if err := run(os.Args[2:]); err != nil {
 		fmt.Fprintf(stderr, "%v\n", err)
-		exit(1)
+		os.Exit(1)
 	}
-	exit(0)
+}
+
+func usageFor(fs *flag.FlagSet, short string) func() {
+	return func() {
+		fmt.Fprintf(os.Stderr, "USAGE\n")
+		fmt.Fprintf(os.Stderr, "  %s\n", short)
+		fmt.Fprintf(os.Stderr, "\n")
+		fmt.Fprintf(os.Stderr, "FLAGS\n")
+		fs.PrintDefaults()
+		fmt.Fprintf(os.Stderr, "\n")
+	}
 }
